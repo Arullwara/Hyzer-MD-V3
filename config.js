@@ -9,8 +9,7 @@ global.numberowner = '6285822347348'
 global.instagram = 'https://instagram.com/sahrulwara_____'
 global.github = 'https://github.com/Arullwara'
 global.dana = '085822347348'
-global.pulsa = 'Indosat:085822347348
-                Telkomsel:081348735630'
+global.pulsa = '085822347348,081348735630'
 global.gopay = ''
 
 //=============『 Info Bot 』=================//
