@@ -698,20 +698,36 @@ module.exports = {
         switch (action) {
             case 'add':
             case 'remove':
-                if (chat.welcome) {
-                    let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
-                    for (let user of participants) {
-                       let pp = './src/welcome.jpg'
-                        try {
-                            pp = await this.profilePictureUrl(user, 'image')
-                        } catch (e) {
-                        } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome,si Beban Masuk Grup').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
-                                (chat.sBye || this.bye || conn.bye || 'Dadahh, Beban Berkurang 1'))
-                                this.sendButtonImg(id, pp, text, "Group Message", "Hallo Beban group 👋", "wkwk", null)
-                                }
+                if  ( chat . selamat datang )  {
+                    biarkan  groupMetadata  =  tunggu  ini . grupMetadata ( id )  ||  ( samb . chatting [ id ]  ||  { } ) . metadata
+                    untuk  ( biarkan  pengguna  peserta ) { _  
+                        let  pp  =  'https://telegra.ph/file/2d06f0936842064f6b3bb.png'
+                        coba  {
+                            pp  =  tunggu  ini . profilePictureUrl ( pengguna ,  'gambar' )
+                        }  tangkap  ( e )  {
+
+                        }  akhirnya  {
+                            text  =  ( action  ===  'add' ? ( chat . sWelcome  ||  this . welcome  ||  conn . welcome  ||  'Welcome, @user!' ) . replace ( '@subject ' , waiting  this .getName  ( id ) ganti ( ' @desc ' , groupMetadata.desc ? String.fromCharCode ( 8206 ) . _ _ _ _ ulangi ( 4001 )  +  grupMetadata . desc : '' ) :
+                                ( chat . sBye  ||  this . bye  ||  samb . bye  ||  'Bye, @user!' ) ) . ganti ( '@user' ,  tunggu  ini . getName ( pengguna ) )
+                            let  wel  =  API ( 'hardianto' ,  '/api/welcome3' ,  {
+                                profil : hal ,
+                                nama : tunggu  ini . getName ( pengguna ) ,
+                                bg : 'https://telegra.ph/file/c538a6f5b0649a7861174.png' ,
+                                namegb : tunggu  ini . getName ( id ) ,
+                                anggota : groupMetadata . peserta . panjangnya
+                            } )
+                            let  lea  =  API ( 'hardianto' ,  '/api/selamat tinggal3' ,  {
+                                profil : hal ,
+                                nama : tunggu  ini . getName ( pengguna ) ,
+                                bg : 'https://telegra.ph/file/c538a6f5b0649a7861174.png' ,
+                                namegb : tunggu  ini . getName ( id ) ,
+                                anggota : groupMetadata . peserta . panjangnya
+                            } )
+                            menunggu  ini . send3TemplateButtonImg ( id ,  action  ===  'add' ? wel : lea ,  text ,  wm ,  action  ===  'add' ? 'selamat datang' : 'sampai jumpa' ,  action  ===  'add' ? '.intro' : 'FokusID' )
+                        }
                     }
                 }
+                merusak
                 break
             case 'promote':
                 text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
