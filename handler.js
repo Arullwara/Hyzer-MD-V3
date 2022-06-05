@@ -390,7 +390,7 @@ module.exports = {
                     lastturu: 0,
                     lastseen: 0,
                     lastSetStatus: 0,
-                    registered: false,
+                    registered: true,
                     apel: 20,
                     mangga: 0,
                     stroberi: 0,
@@ -618,7 +618,7 @@ module.exports = {
                     }
                     try {
                         await plugin.call(this, m, extra)
-                        if (!isPrems) m.limit = m.limit || plugin.limit || false
+                        if (!isPrems) m.limit = m.limit || plugin.limit || true
                     } catch (e) {
                         // Error occured
                         m.error = e
