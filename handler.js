@@ -405,11 +405,11 @@ module.exports = {
                     job: 'Pengangguran', 
                     lbars: '[▒▒▒▒▒▒▒▒▒]', 
                     role: 'Newbie ㋡', 
-                    registered: false,
+                    registered: true,
                     name: this.getName(m.sender),
                     age: -1,
                     regTime: -1,
-                    autolevelup: true,
+                    autolevelup: false,
                     lastIstigfar: 0,
                 }
                 let chat = global.db.data.chats[m.chat]
@@ -417,26 +417,26 @@ module.exports = {
                 if (chat) {
                     if (!('isBanned' in chat)) chat.isBanned = false
                     if (!('welcome' in chat)) chat.welcome = true
-                    if (!('detect' in chat)) chat.detect = false
+                    if (!('detect' in chat)) chat.detect = true
                     if (!('sWelcome' in chat)) chat.sWelcome = ''
                     if (!('sBye' in chat)) chat.sBye = ''
                     if (!('sPromote' in chat)) chat.sPromote = ''
                     if (!('sDemote' in chat)) chat.sDemote = ''
                     if (!('delete' in chat)) chat.delete = true
                     if (!('antiLink' in chat)) chat.antiLink = true
-                    if (!('viewonce' in chat)) chat.viewonce = false
-                    if (!('antiToxic' in chat)) chat.antiToxic = false
+                    if (!('viewonce' in chat)) chat.viewonce = true
+                    if (!('antiToxic' in chat)) chat.antiToxic = true
                 } else global.db.data.chats[m.chat] = {
                     isBanned: false,
                     welcome: true,
-                    detect: false,
+                    detect: true,
                     sWelcome: '',
                     sBye: '',
                     sPromote: '',
                     sDemote: '',
                     delete: true,
-                    antiLink: false,
-                    viewonce: false,
+                    antiLink: true,
+                    viewonce: true,
                     antiToxic: true,
                 }
             } catch (e) {
@@ -580,7 +580,7 @@ module.exports = {
                         fail('private', m, this)
                         continue
                     }
-                    if (plugin.register == true && _user.registered == false) { // Butuh daftar?
+                    if (plugin.register == true && _user.registered == true) { // Butuh daftar?
                         fail('unreg', m, this)
                         continue
                     }
@@ -589,7 +589,7 @@ module.exports = {
                     if (xp > 200) m.reply('Ngecit -_-') // Hehehe
                     else m.exp += xp
                     if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-                        this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+                        this.reply(m.chat, `Limit anda habis, silahkan beli ngab melalui *${usedPrefix}buy*`, m)
                         continue // Limit habis
                     }
                     if (plugin.level > _user.level) {
@@ -706,9 +706,9 @@ module.exports = {
                             pp = await this.profilePictureUrl(user, 'image')
                         } catch (e) {
                         } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Yah,si Beban Masuk Grup').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
-                                (chat.sBye || this.bye || conn.bye || 'Sip, Beban Berkurang 1'))
-                                this.sendButtonImg(id, pp, text, "Group Message", "Hi Beban 👋", "wkwk", null)
+                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome,si Beban Masuk Grup').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
+                                (chat.sBye || this.bye || conn.bye || 'Dadahh, Beban Berkurang 1'))
+                                this.sendButtonImg(id, pp, text, "Group Message", "Hallo Beban group 👋", "wkwk", null)
                                 }
                     }
                 }
@@ -746,16 +746,16 @@ Untuk mematikan fitur ini, ketik
 
 global.dfail = (type, m, conn) => {
     let msg = {
-        rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
-        owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
-        mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
+        rowner: 'Perintah ini hanya dapat digunakan oleh _*Arull!1!1!*_',
+        owner: 'Perintah ini hanya dapat digunakan oleh _*Arull*_!',
+        mods: 'Perintah ini hanya dapat digunakan oleh _*Arull*_ !',
         premium: 'Perintah ini hanya untuk member _*Premium*_ !',
         group: 'Perintah ini hanya dapat digunakan di grup!',
         private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
         admin: 'Perintah ini hanya untuk *Admin* grup!',
         botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
-        unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
-        restrict: 'Fitur ini di *disable*!'
+        unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar ArullBotz.18*',
+        restrict: 'Fitur ini di *enable*!'
     }[type]
     if (msg) return m.reply(msg)
 }
