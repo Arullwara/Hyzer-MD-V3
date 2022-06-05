@@ -9,7 +9,8 @@ global.numberowner = '6285822347348'
 global.instagram = 'https://instagram.com/sahrulwara_____'
 global.github = 'https://github.com/Arullwara'
 global.dana = '085822347348'
-global.pulsa = '085822347348,081348735630'
+global.pulsa = 'Indosat:085822347348
+                Telkomsel:081348735630'
 global.gopay = ''
 
 //=============『 Info Bot 』=================//
@@ -36,7 +37,7 @@ global.eror = '_*Server Error*_'
 global.benar = 'Benar ✅\n'
 global.salah = 'Salah ❌\n'
 global.stiker_wait = 'Stiker sedang dibuat'
-global.packname = '2022'
+global.packname = 'ArullBotz'
 global.author = '© Arull Official'
 
 //=============『 Apikey 』================== //
